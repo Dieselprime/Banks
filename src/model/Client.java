@@ -9,16 +9,22 @@ import java.util.UUID;
 
 public class Client extends Entity {
 
-   private String firstName;
-   private String lastName;
-   private String address;
-   private long passportNumb;
-   private List<Bill> billList;
+    private String firstName;
+    private String lastName;
+    private String address;
+    private long passportNumb;
+    private List<Bill> billList;
 
-    public Client () {
+    public Client() {
 
         id = UUID.randomUUID();
-billList = new ArrayList<>();
-billList.add(new DebitBill());
+        billList = new ArrayList<>();
+        billList.add(new DebitBill());
+        billList.add(new DepositBill());
+        billList.add(new CreditBill());
     }
+
+
+
+
 }
