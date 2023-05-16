@@ -6,8 +6,18 @@ import model.base.Entity;
 import java.util.UUID;
 
 public abstract class Bill extends Entity {
-    private double sum;
-    private double wSum; // снимаемая сумма
+    protected double sum;
+    protected double wSum; // снимаемая сумма
+
+
+    public double getSum() {
+        return sum;
+    }
+
+    public void setSum(double sum) {
+        this.sum = sum;
+    }
+
 
     public Bill() {
 
@@ -16,15 +26,15 @@ public abstract class Bill extends Entity {
     }
 
     // механизм снятия
-    public void withdrawalOfMoney(double wSum) {
+    public void withdrawalOfMoney(double wSum) throws SumValueException {
         sum = sum - wSum;
+
 
     }
 
     // пополнения
     public void replenishmentOfMoney(double wSum) {
         sum = sum + wSum;
-
 
 //sum+;
     }

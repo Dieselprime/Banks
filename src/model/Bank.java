@@ -7,15 +7,21 @@ import java.util.UUID;
 
 public class Bank extends Entity {
 
-   private String name;
-   private double percent;
-   private List<Client> listOfClients;
+   protected String name;
+   protected double percent;
+   protected double capital;
+   protected List<Client> listOfClients;
 
-    public Bank () {
+    public Bank (String name, double percent, double capital, List<Client> listOfClients) {
+
+
+
 
         id = UUID.randomUUID();
 
     }
+
+
 
 
 
