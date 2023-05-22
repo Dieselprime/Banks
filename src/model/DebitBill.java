@@ -5,6 +5,8 @@ import model.base.SumValueException;
 
 public class DebitBill extends Bill {
 
+
+
     @Override
     public void withdrawalOfMoney(double wSum) throws SumValueException {
         sum = sum - wSum;

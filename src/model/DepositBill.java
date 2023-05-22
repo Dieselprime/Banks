@@ -5,6 +5,11 @@ import model.base.SumValueException;
 
 public class DepositBill extends Bill {
 
+    private double time;
+
+
+
+
     @Override
     public void withdrawalOfMoney(double wSum) throws SumValueException {
         sum = sum - wSum;

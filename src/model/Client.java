@@ -13,7 +13,7 @@ public class Client extends Entity {
     private String lastName;
     private String address;
     private long passportNumb;
-    private List<Bill> billList;
+    protected List<Bill> billList;
 
     public Client() {
 
