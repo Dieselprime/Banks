@@ -41,7 +41,7 @@ public class TimeBooster {
         Bill bill = billRepos.getBillbyId(one);
         bill.getSum();             // 3% до 50 000;  3,5% до 100 000;  4% больше 100 000
 
-        if (bill.getSum() > 50000) {
+        if (bill.getSum() < 50000) {
             // double percentSum1 = percentAmountFee - 1;
             double DayFeeRub = (bill.getSum() / 100) * (percentAmountFee1 / 365); //добавить изменение процента (в зависимости от суммы)
             return DayFeeRub;
@@ -83,6 +83,7 @@ public class TimeBooster {
             countFee = dayFee + dayFee;
 
         }
+        bill.setSum(bill.getSum() + countFee); // дописать сум + countFee и возвращать ее?   // завести в main счетчик, после того как прошло 30 дн, начислить эту сумму.
         return countFee;
     }
 
@@ -91,7 +92,7 @@ public class TimeBooster {
         Bill bill = billRepos.getBillbyId(one);
         double dayFee = depositDayFeeSum(one, percentAmountFee, percentAmountFee2, percentAmountFee3);
         double countFee = dayFee;
-        for (int i = 0; i < Count; i++) {
+        for (int i = 0; i < Count; i++) {     // countFee = dayFee * Count(вместо i < Count: i < i + count)(вместо i++: i + count)
             countFee = dayFee + dayFee;
 
 
@@ -113,4 +114,6 @@ public class TimeBooster {
 
         return countFee;
     }
+
+
 }

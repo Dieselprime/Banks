@@ -27,8 +27,9 @@ public abstract class Bill extends Entity {
     public double getSum() {
         return sum;
     }
-    public void setSum(double sum) {
+    public double setSum(double sum) {
         this.sum = sum;
+        return sum;
     }
 
     public double getwSum() {
