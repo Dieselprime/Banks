@@ -1,8 +1,7 @@
 package com.company;
 
-import model.Bank;
-import model.CentralBank;
-import model.Client;
+import model.*;
+import model.base.Bill;
 import service.TimeBooster;
 import service.TransferService;
 
@@ -18,15 +17,43 @@ public class Main {
         // centralBank.sendNotifications();
 
         TimeBooster timeBooster = new TimeBooster();
-        double count1 = timeBooster.timeCounter();
+
 
         CentralBank centralBank = new CentralBank("Central", 3, 300000, new ArrayList<>());
+        Bank bank = new Bank("one", 4, 50000000, new ArrayList<>());
 
-        double count2 = timeBooster.timeCounter();
-        double Сount = count2 - count1;
+        Client client1 = new Client();
+
+        Bill bill1 = new DebitBill();
+        Bill bill2 = new DepositBill();  // доставать из репозитория
+        Bill bill3 = new CreditBill();
+
+        bill1.setSum(100000);
+
+        while (true) {
+            double count1 = timeBooster.timeCounter();
+
+            Client client2 = new Client();
+
+            Bill bill = new DebitBill();
+            bill.setSum(50000);
+
+            TransferService transferService = new TransferService();
+
+            // transferService.transfer(bill1.getId(),bill.getId(),10000);
+            // bill1.getSum = 90 000
+            // bill2.getSum = 60 000
+            //double count2 = timeBooster.timeCounter();
+            //double count = count2 - count1;                           // срок счетчика месяц/год?
+            timeBooster.debetDeposCreditDayFeeSum(bill1.getId(), 4); // дейФи
 
 
-        System.out.println(Сount);
+            ///  count = timeBooster.timeCounter(); // запуск счетчика заново?
+
+double count2 = timeBooster.timeCounter();
+double count = count2 - count1;
+        }
+
 
     }
 }

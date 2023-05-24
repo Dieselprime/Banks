@@ -10,7 +10,9 @@ public class Bank extends Entity {
     protected String name;
     // процент у счетов
     protected double fixedPercentFee; // фикс процент дебета
-    protected double percentAmountFee;  // процент депозита
+    protected double percentAmountFee1;  // проценты депозита
+    protected double percentAmountFee2;
+    protected double percentAmountFee3;
     protected double negativeAmountFee; // процент кредита
     protected double capital;
     protected List<Client> listOfClients;
