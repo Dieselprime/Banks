@@ -8,7 +8,7 @@ public class DebitBill extends Bill {
 
 
     @Override
-    public void withdrawalOfMoney(double wSum) throws SumValueException {
+    public void withdrawalOfMoney(double wSum, double period) throws SumValueException {
         sum = sum - wSum;
         if (wSum > sum) {
 

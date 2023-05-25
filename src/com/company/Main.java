@@ -33,22 +33,28 @@ public class Main {
         while (true) {
             double count1 = timeBooster.timeCounter();
 
-            Client client2 = new Client();
+//            Client client2 = new Client();
+//
+//            Bill bill = new DebitBill();
+//            bill.setSum(50000);
+//
+//            TransferService transferService = new TransferService();
+//
+//            // transferService.transfer(bill1.getId(),bill.getId(),10000);
+//            // bill1.getSum = 90 000
+//            // bill2.getSum = 60 000
+//            //double count2 = timeBooster.timeCounter();
+//            //double count = count2 - count1;                           // срок счетчика месяц
+//            timeBooster.debetDeposCreditDayFeeSum(bill1.getId(), 4); // дейФи
 
-            Bill bill = new DebitBill();
-            bill.setSum(50000);
-
-            TransferService transferService = new TransferService();
-
-            // transferService.transfer(bill1.getId(),bill.getId(),10000);
-            // bill1.getSum = 90 000
-            // bill2.getSum = 60 000
-            //double count2 = timeBooster.timeCounter();
-            //double count = count2 - count1;                           // срок счетчика месяц/год?
-            timeBooster.debetDeposCreditDayFeeSum(bill1.getId(), 4); // дейФи
+            Client client = new Client();
+            client.setFirstName("qw");
+            client.setLastName("we");
+            client.setAddress("rf");          // если у клиента нет
+            client.setPassportNumb(12345); // этих 3ух полей - он сомнительный
 
 
-            ///  count = timeBooster.timeCounter(); // запуск счетчика заново?
+
 
 double count2 = timeBooster.timeCounter();
 double count = count2 - count1;

@@ -60,7 +60,7 @@ public abstract class Bill extends Entity {
 
 
     // механизм снятия
-    public void withdrawalOfMoney(double wSum) throws SumValueException {
+    public void withdrawalOfMoney(double wSum, double period) throws SumValueException {
         sum = sum - wSum;
 
 

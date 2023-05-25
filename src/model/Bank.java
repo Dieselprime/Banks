@@ -10,9 +10,7 @@ public class Bank extends Entity {
     protected String name;
     // процент у счетов
     protected double fixedPercentFee; // фикс процент дебета
-    protected double percentAmountFee1;  // проценты депозита
-    protected double percentAmountFee2;
-    protected double percentAmountFee3;
+    protected double percentAmountFee;  // проценты депозита
     protected double negativeAmountFee; // процент кредита
     protected double capital;
     protected List<Client> listOfClients;
@@ -22,6 +20,11 @@ public class Bank extends Entity {
 
 
         id = UUID.randomUUID();
+
+    }
+
+
+    public void TransactionCancel () {
 
     }
 

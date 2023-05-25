@@ -19,7 +19,7 @@ public class CentralBank extends Bank {
 
     }
 
-
+    // создание банка
     public Bank registration(String name, double percent, double capital, List<Client> listOfClients) {
 
         Bank bank = new Bank(name, percent, capital, listOfClients);
@@ -33,10 +33,10 @@ public class CentralBank extends Bank {
     }
 
 
-    public void perevod(Bill one, Bill two, double sum) {
+    public void perevod(Bill one, Bill two, double sum, double period) {
 
         try {
-            one.withdrawalOfMoney(sum);
+            one.withdrawalOfMoney(sum, period);
         } catch (SumValueException exception) {
             System.out.println(exception.getMessage() + exception.getwSum());
         }
@@ -48,7 +48,7 @@ public class CentralBank extends Bank {
 
     public void sendNotifications() {
 
-        for (Bank bank:bankList) {
+        for (Bank bank : bankList) {
             System.out.println(bank.name + " Уведомление отправлено");
         }
 
