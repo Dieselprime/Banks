@@ -73,10 +73,21 @@ public abstract class Bill extends Entity {
 //sum+;
     }
 
-    // перевода
-    public void transferOfMoney() {
-        // sum = sum - wSum;
+
+    public void transferOfMoney(Bill one, Bill two, double wSum) {
+
+        // if bill one депзитный или/и bill two депозитный, проверить период
+        // если период ноль, перевести деньги нельзя
+
+        // если wSum > суммы на счете , перевести нельзя
+
+
+        one.setSum(one.getSum()-wSum); // сумма на 1ом после перевода
+        two.setSum(two.getSum()+wSum);
 
     }
+
+
+
 
 }

@@ -9,6 +9,7 @@ import java.util.UUID;
 
 public class Client extends Entity {
 
+
     private String firstName;
     private String lastName;
     private String address;
@@ -45,13 +46,20 @@ public class Client extends Entity {
     }
 
 
-    public Client() {
+    public Client(Bank bank, String firstName, String lastName, String Address, long PassportNumb) {
 
+bank.listOfClients.get(0); // достанет банк
         id = UUID.randomUUID();
         billList = new ArrayList<>();
-        billList.add(new DebitBill());
-        billList.add(new DepositBill());
-        billList.add(new CreditBill());
+
+
+    }
+
+    public  void billAdder (Bill bill){
+
+        billList.add(bill);
+
+
     }
 
 

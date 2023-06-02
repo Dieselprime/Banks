@@ -1,16 +1,29 @@
 package model;
 
+
 import model.base.Bill;
 import model.base.SumValueException;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class CentralBank extends Bank {
 
     private double regFee;
     private List<Bank> bankList;
+
+    public static CentralBank instance;
+
+
+    public static CentralBank getInstance() {                       // синглтон
+
+        if (instance == null) {
+            instance = new CentralBank(instance.name, instance.regFee, instance.capital, instance.listOfClients);
+        }
+        return instance;
+    }
+
+
 
     public CentralBank(String name, double percent, double capital, List<Client> listOfClients) {
 
@@ -18,6 +31,7 @@ public class CentralBank extends Bank {
         bankList = new ArrayList<>();
 
     }
+
 
     // создание банка
     public Bank registration(String name, double percent, double capital, List<Client> listOfClients) {

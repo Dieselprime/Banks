@@ -1,6 +1,7 @@
 package service;
 
 
+import model.DepositBill;
 import model.base.Bill;
 import repos.BillRepos;
 
@@ -31,7 +32,8 @@ public class TimeBooster {
         Bill bill = billRepos.getBillbyId(one);
         double dayFeeRub = (bill.getSum() / 100) * (fixedPercentFee / 365);   /// bill.getSum() - сумма за год
 
-        bill.setDayFee(bill.getDayFee() + dayFeeRub);
+        bill.setDayFee(bill.getDayFee() + dayFeeRub);   // bill.setSum(bill.getSum + )
+
         return dayFeeRub;
     }
 
@@ -52,5 +54,19 @@ public class TimeBooster {
         return countFee;
     }
 
+    public void DepositPeriodCounter(double period) {
 
+        billRepos.getBillList();
+
+        for (Bill bill : billRepos.getBillList()) {
+
+            if (bill instanceof DepositBill) {
+                ((DepositBill) bill).setPeriod(((DepositBill) bill).getPeriod() - 1);
+            }
+
+        }
+
+
+    }
 }
+

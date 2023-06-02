@@ -25,9 +25,17 @@ public class DepositBill extends Bill {
 //    }
 
 
+    public double getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(double period) {
+        this.period = period;
+    }
+
     @Override
     public void withdrawalOfMoney(double wSum, double period) throws SumValueException {
-        if (period > 0) {
+        if (period <= 0) {
             sum = sum - wSum;
 
         } else if (wSum > sum) {
@@ -35,7 +43,7 @@ public class DepositBill extends Bill {
             throw new SumValueException("Сумма снятия превышает баланс", wSum);
 
         } else {
-            System.out.println("У счета закончился срок");
+            System.out.println("У счета не закончился срок");
         }
     }
 
@@ -43,4 +51,9 @@ public class DepositBill extends Bill {
     public void replenishmentOfMoney(double wSum) {
         super.replenishmentOfMoney(wSum);
     }
+
+
+
+
+
 }

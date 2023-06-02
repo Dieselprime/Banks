@@ -1,7 +1,9 @@
 package model;
 
+import model.base.Bill;
 import model.base.Entity;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,10 +23,25 @@ public class Bank extends Entity {
 
         id = UUID.randomUUID();
 
+
     }
 
+ public  void clientAdder (Client client){
 
-    public void TransactionCancel () {
+        listOfClients.add(client);
+
+
+ }
+
+
+    public void TransactionCancel(Bill one, Bill two, double wSum) {
+
+//        one.getSum();
+//        two.getSum();
+
+
+
+
 
     }
 
