@@ -5,10 +5,12 @@ import model.base.SumValueException;
 
 public class DebitBill extends Bill {
 
-
+public DebitBill (Client client){
+    super(client);
+}
 
     @Override
-    public void withdrawalOfMoney(double wSum, double period) throws SumValueException {
+    public void withdrawalOfMoney(double wSum) throws SumValueException {
         sum = sum - wSum;
         if (wSum > sum) {
 

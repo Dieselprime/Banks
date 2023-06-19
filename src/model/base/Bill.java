@@ -5,15 +5,16 @@ import model.base.Entity;
 
 import java.util.UUID;
 
-public abstract class Bill extends Entity {
+public class Bill extends Entity { // исправить abstract
     protected double sum;
     protected double wSum; // снимаемая сумма
     protected Client client;
     protected double dayFee;
 
 
-    public Bill() {
+    public Bill(Client client) {
 
+        this.client = client;
         id = UUID.randomUUID();
 
     }
@@ -50,9 +51,9 @@ public abstract class Bill extends Entity {
         return wSum;
     }
 
-    public void setwSum(double wSum) { // throws SumValueException
+    public void setwSum(double wSum) {
         if (wSum <= 0) {
-            //  throws new SumValueException ("Сумма снятия больше суммы на счете");
+
         }
 
         this.wSum = wSum;
@@ -60,7 +61,8 @@ public abstract class Bill extends Entity {
 
 
     // механизм снятия
-    public void withdrawalOfMoney(double wSum, double period) throws SumValueException {
+    public void withdrawalOfMoney(double wSum) throws SumValueException {
+
         sum = sum - wSum;
 
 
@@ -72,22 +74,6 @@ public abstract class Bill extends Entity {
 
 //sum+;
     }
-
-
-    public void transferOfMoney(Bill one, Bill two, double wSum) {
-
-        // if bill one депзитный или/и bill two депозитный, проверить период
-        // если период ноль, перевести деньги нельзя
-
-        // если wSum > суммы на счете , перевести нельзя
-
-
-        one.setSum(one.getSum()-wSum); // сумма на 1ом после перевода
-        two.setSum(two.getSum()+wSum);
-
-    }
-
-
 
 
 }

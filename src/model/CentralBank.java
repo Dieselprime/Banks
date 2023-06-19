@@ -12,23 +12,34 @@ public class CentralBank extends Bank {
     private double regFee;
     private List<Bank> bankList;
 
-    public static CentralBank instance;
+    private static CentralBank instance;
 
 
-    public static CentralBank getInstance() {                       // синглтон
+    public static CentralBank getCentralBankLink() {                       // синглтон
 
         if (instance == null) {
-            instance = new CentralBank(instance.name, instance.regFee, instance.capital, instance.listOfClients);
+            System.out.println("Central bank не задан, передайте параметры");
+        }
+        return instance;
+    }
+
+    public static CentralBank createCB(String name, double percent, double capital, List<Bank> bankList) {
+
+
+        if (instance == null) {
+            instance = new CentralBank(name, percent, capital, bankList);
         }
         return instance;
     }
 
 
+    public CentralBank(String name, double percent, double capital, List<Bank> bankList) {
 
-    public CentralBank(String name, double percent, double capital, List<Client> listOfClients) {
-
-        super(name, percent, capital, listOfClients);
-        bankList = new ArrayList<>();
+        this.name = name;
+        this.Percent = percent;
+        this.capital = capital;
+        this.listOfClients = null;
+        this.bankList = bankList;
 
     }
 
@@ -47,10 +58,10 @@ public class CentralBank extends Bank {
     }
 
 
-    public void perevod(Bill one, Bill two, double sum, double period) {
+    public void perevod(Bill one, Bill two, double sum) {
 
         try {
-            one.withdrawalOfMoney(sum, period);
+            one.withdrawalOfMoney(sum);
         } catch (SumValueException exception) {
             System.out.println(exception.getMessage() + exception.getwSum());
         }

@@ -5,12 +5,13 @@ import model.base.SumValueException;
 
 public class CreditBill extends Bill {
 
-
-   // private double creditLimit?
+    public CreditBill (Client client) {
+        super(client);
+    }
 
     @Override
-    public void withdrawalOfMoney(double wSum, double period) throws SumValueException {
-        super.withdrawalOfMoney(wSum, period);
+    public void withdrawalOfMoney(double wSum) throws SumValueException {
+        super.withdrawalOfMoney(wSum);
     }
 
     @Override

@@ -9,17 +9,24 @@ import java.util.UUID;
 
 public class Client extends Entity {
 
-
+    private  Bank bank;
     private String firstName;
     private String lastName;
     private String address;
     private long passportNumb;
     protected List<Bill> billList;
 
+    public Bank getBank() {
+        return bank;
+    }
+    public void setBank(Bank bank) {
+        this.bank = bank;
+    }
 
     public String getFirstName() {
         return firstName;
     }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -27,6 +34,7 @@ public class Client extends Entity {
     public String getLastName() {
         return lastName;
     }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
@@ -34,6 +42,7 @@ public class Client extends Entity {
     public String getAddress() {
         return address;
     }
+
     public void setAddress(String address) {
         this.address = address;
     }
@@ -41,28 +50,33 @@ public class Client extends Entity {
     public double getPassportNumb() {
         return passportNumb;
     }
+
     public void setPassportNumb(long passportNumb) {
         this.passportNumb = passportNumb;
     }
 
 
-    public Client(Bank bank, String firstName, String lastName, String Address, long PassportNumb) {
+    public Client(Bank bank, String firstName, String lastName, String address, long passportNumb) {
 
-bank.listOfClients.get(0); // достанет банк
+        this.bank = bank;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.passportNumb = passportNumb;
+
+        bank.listOfClients.get(0); // достанет банк
         id = UUID.randomUUID();
         billList = new ArrayList<>();
 
 
     }
 
-    public  void billAdder (Bill bill){
+    public void billAdder(Bill bill) {
 
         billList.add(bill);
 
 
     }
-
-
 
 
 }

@@ -7,6 +7,10 @@ public class DepositBill extends Bill {
 
     private double period;
 
+    public DepositBill (Client client) {
+        super(client);
+    }
+
 
 //    public void withdrawalOfMoney(double wSum, double period) throws SumValueException { // будет ли проблема, если этот счет не @Override?
 //
@@ -34,7 +38,8 @@ public class DepositBill extends Bill {
     }
 
     @Override
-    public void withdrawalOfMoney(double wSum, double period) throws SumValueException {
+    public void withdrawalOfMoney(double wSum) throws SumValueException {
+
         if (period <= 0) {
             sum = sum - wSum;
 
